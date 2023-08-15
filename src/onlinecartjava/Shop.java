@@ -49,14 +49,17 @@ public class Shop {
 				break;
 				case 2:System.out.println("--------------------Customer-----------------");
 					
-					 System.out.println("Register Customer Using Customer Id and Passward:-");
-					 String customerId=sc.nextLine();
 					 sc.nextLine();
+					 System.out.println("Register Customer Using Customer Id :-");
+					 String customerId=sc.nextLine();
+					 
+					 System.out.println("Provide passward for registraction :-");
 					 String customerPassward=sc.nextLine();
 					 Customer customer=new Customer(customerId,customerPassward);
 					 
 					 System.out.println("Enter Customer Login Credential");
 					 System.out.println("Enter Customer Id :- ");
+					
 					
 					 String loginCustomerId=sc.nextLine();
 					 

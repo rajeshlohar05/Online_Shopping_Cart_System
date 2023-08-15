@@ -1,5 +1,6 @@
 package onlinecartjava;
 
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -13,9 +14,10 @@ public class Customer extends Shop {
 		customerLogin.put(customerId, customerPassward);
 		System.out.println("Customer Successfully Registered..");
 	}
-	void customerConnect(String loginCustomerId,String customerPassward) {
+	void customerConnect(String loginCustomerId,String loginCustomerPassward) {
 		
-		if(customerLogin.containsKey(loginCustomerId) && customerLogin.get(customerId).compareToIgnoreCase((String)customerPassward)==0) {
+		System.out.println(customerLogin.containsKey((String)loginCustomerId));
+		if(customerLogin.containsKey((String)loginCustomerId) && customerLogin.get(loginCustomerId).compareToIgnoreCase((String)loginCustomerPassward)==0) {
 			System.out.println("Customer Login Succesfull");
 			
 			Scanner sc=new Scanner(System.in);
@@ -44,7 +46,28 @@ public class Customer extends Shop {
 							int id=sc.nextInt();
 							
 							if(Cart.addToCart(id))
+							{
 								System.out.println("Add to Cart Successfully");
+								System.out.println("To buy this Product Press y/Y");
+								ch=sc.next().charAt(0);
+								if(ch=='y'||ch=='Y') {
+									int idx=-1;
+									for(Products list:productList)
+									{
+										if(list.productId==id) {
+											idx=productList.indexOf(list);
+											break;
+										}
+									}
+									Products ll=productList.get(idx);
+									System.out.println("Your Product is :- \n");
+									System.out.println("Name : "+ll.productName);
+									System.out.println("Price :  "+ll.productPrice);
+									Random r=new Random();
+									int transaction_id=((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
+									System.out.println("Transaction Id : "+transaction_id);
+								}
+							}
 							else
 							{
 								System.out.println("No such Product Available with id : "+id);

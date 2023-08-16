@@ -9,10 +9,10 @@ import java.util.Scanner;
 //main class where project start
 public class Shop {
 
-	static List<Products> productList=new ArrayList<>();
-	static Map<Integer,Customer> customerList=new HashMap<>();
-	static Map<String,String> customerLogin=new HashMap<>();
-	static List<Products> cartList=new ArrayList<>();
+	static protected List<Products> productList=new ArrayList<>();
+	static protected Map<Integer,Customer> customerList=new HashMap<>();
+	static protected Map<String,String> customerLogin=new HashMap<>();
+	static protected List<Products> cartList=new ArrayList<>();
 	
 	public static void main(String []args) {
 		
